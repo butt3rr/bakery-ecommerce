@@ -3,7 +3,7 @@
 body {
   font-family: "poppins", sans-serif;
   color: #101010;
-  background-color: #ffffff;
+  background-color:#eee1ba;
 }
 
 .layout_padding {
@@ -40,6 +40,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
 }
 
 .heading_container h2 {
@@ -69,12 +70,12 @@ body {
 
 #navbarSupportedContent {
   width: 100%;
-  background-color: skyblue;
+  background-color: #c37960;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px 0;
-  border-radius: 15px 15px 0 0;
+  border-radius: 10px 10px 0 0;
 }
 
 #navbarSupportedContent.innerpage_navbar {
@@ -90,7 +91,7 @@ body {
 
 #navbarSupportedContent .navbar-nav .nav-link {
   padding: 5px 25px;
-  color: #514f4f;
+  color: #000000;
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
@@ -121,6 +122,7 @@ a:focus {
 .navbar-brand {
   margin: 15px 0;
   padding: 0;
+  text-align: center;;
 }
 
 .navbar-brand span {
@@ -220,6 +222,8 @@ a:focus {
       -ms-flex-align: center;
           align-items: center;
   margin-left: 25px;
+  text-transform: uppercase;
+
 }
 
 .user_option a {
@@ -229,6 +233,13 @@ a:focus {
 
 .user_option a span {
   margin-left: 5px;
+}
+
+.motto-class {
+  font-size: 15px;
+  display: block;
+  color: #000000;
+  text-transform: capitalize;
 }
 
 /*end header section*/
@@ -852,5 +863,10 @@ a:focus {
   color: #cbc9c9;
 }
 
+.footer {
+  background-color: #894e3f; 
+}
+
 /* end footer section*/
 /*# sourceMappingURL=style.css.map */
+

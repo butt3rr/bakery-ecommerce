@@ -2,11 +2,11 @@
     <div class="container">
     <div class="heading_container ">
         <h2 class="">
-          Our Products
+          Top Products
         </h2>
       </div>
       <div class="row">
-
+      
       @foreach($product as $products)
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
@@ -39,6 +39,7 @@
         </div>
       
       @endforeach
+      
       </div>
      
     </div>

@@ -8,11 +8,11 @@
                   <div class="col-md-8">
                     <div class="detail-box"> 
                       <h1>
-                        Welcome To Our <br>
-                        TechGear Store
+                        Welcome To <br>
+                       SedapBakes
                       </h1>
                       <p>
-                      Welcome to TechGear – Your Ultimate Destination for High-Performance Sports Gear! <br>From cutting-edge equipment to apparel designed to keep you moving, we’ve got everything you need to fuel your passion and elevate your game!
+                      <i>Where Gluten-Free Bakeries Come To Life</i>
                       </p>
                       <a href="">
                         Contact Us

@@ -1,14 +1,13 @@
-<section class="info_section  layout_padding2-top">
-    <div class="info_container ">
-      <div class="container">
+<section class="info_section  layout_padding2-top  footer">
+    <div class="info_container">
+      <div class="container ">
         <div class="row">
           <div class="col-md-5 col-lg-3">
             <h6>
               ABOUT US
             </h6>
             <p>
-            At TechGear, we’re passionate about helping fitness enthusiasts perform their best. We provide high-quality sports gear and apparel that combine durability, performance, and style. Let us help you achieve your goals, one step at a time!
-            </p>
+            At SedapBakes, we’re passionate about bringing you delicious, gluten-free treats without compromising on taste or quality. We craft our baked goods with the finest ingredients to ensure every bite is both wholesome and satisfying. Enjoy the goodness of gluten-free, made with love!            </p>
           </div>
           <div class="col-md-5 col-lg-3">
             <h6>
@@ -33,7 +32,7 @@
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span> techgear@gmail.com</span>
+                <span> sedapbakes@gmail.com</span>
               </a>
             </div>
           </div>
