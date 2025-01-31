@@ -3,6 +3,7 @@
   <head> 
    @include('admin.css')
 
+   
    <style>
     .div_design {
       display: flex;
