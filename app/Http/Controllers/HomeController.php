@@ -8,6 +8,8 @@ use App\Models\Product;
 use App\Models\User;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Promotion;
+use App\Models\Contact;
 
 
 use Illuminate\View\View;
@@ -35,6 +37,9 @@ class HomeController extends Controller
     //display product data
     $product = Product::all();
 
+    //get active promotions
+    $promotions = Promotion::where('is_active', 1)->get();
+
     if(Auth::id())
     {
         $user = Auth::user();
@@ -48,7 +53,7 @@ class HomeController extends Controller
         
     }
 
-            return view('home.index', compact('product', 'count'));
+            return view('home.index', compact('product', 'count', 'promotions'));
     }
 
     public function login_home()
@@ -254,4 +259,21 @@ class HomeController extends Controller
 
             return view('home.shop', compact('product', 'count'));
     }
+
+    public function add_contact(Request $request)
+    {
+        $data = new Contact;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->message = $request->message;
+
+        $data->save();
+
+        toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Message Sent Successfully.');
+
+        return redirect()->back();
+    }
+
+   
 }

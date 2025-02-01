@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Promotion;
 use App\Models\Order;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Carbon\Carbon;
 
 
 class AdminController extends Controller
@@ -19,13 +21,13 @@ class AdminController extends Controller
 
     public function add_category(Request $request) {
 
-$category = new Category;
-$category ->category_name = $request->category;
-$category->save();
+        $category = new Category;
+        $category ->category_name = $request->category;
+        $category->save();
 
-toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Category Added Successfully.');
+        toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Category Added Successfully.');
 
-return redirect()->back();
+        return redirect()->back();
     }
 
     public function delete_category($id)
@@ -189,5 +191,42 @@ public function print_pdf($id)
     $pdf = Pdf::loadView('admin.invoice', compact('data'));
     return $pdf->download('invoice.pdf');
 }
+
+
+public function add_promotion() 
+{
+        return view('admin.add_promotion');
+}
+
+public function upload_promotion(Request $request)
+    {
+        $data = new Promotion;
+
+        $data-> promotion_name = $request->promotion_name; //request from form 
+        $data-> description = $request->description;
+        $data->start_date = Carbon::parse($request->start_date)->format('Y-m-d');
+        $data->end_date = Carbon::parse($request->end_date)->format('Y-m-d');
+
+        $image = $request->image;
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image'); // Correctly get the file object
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('promotion', $imagename); // Save the image
+            $data->image = $imagename;
+        }
+
+        $data->save();
+
+        toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Promotion Added Successfully.');
+
+
+        return redirect() -> back();
+    }
+
+    
+    
+
+
 
 }

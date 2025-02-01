@@ -1,35 +1,41 @@
+<style>
+    .promo-slider {
+        width: 80%;
+        max-height: 400px;
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
 <section class="slider_section">
-      <div class="slider_container">
+    <!-- slider container -->
+    <div class="slider_container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-8">
-                    <div class="detail-box"> 
-                      <h1>
-                        Welcome To <br>
-                       SedapBakes
-                      </h1>
-                      <p>
-                      <i>Where Gluten-Free Bakeries Come To Life</i>
-                      </p>
-                      <a href="">
-                        Contact Us
-                      </a>
+            <div class="carousel-inner">
+            @foreach($promotions as $promotion)
+                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <!-- Image from the promotion table -->
+                                <div class="col-12">
+                                <img src="{{ url('promotion/' . $promotion->image) }}" class="promo-slider d-block img-fluid" alt="{{ $promotion->promotion_name }}" title="{{ $promotion->promotion_name }}">
+
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-4 ">
-                    <div class="img-box">
-                      <img style="width:400px" src="images/techgear.jpg" alt="" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+                @endforeach
             </div>
-            
-          </div>
-          
+            <!-- Carousel Controls (left and right)-->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-      </div>
-    </section>
+    </div>
+</section>

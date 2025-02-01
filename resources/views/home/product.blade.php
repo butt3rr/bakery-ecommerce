@@ -1,14 +1,20 @@
+<style>
+  .product-section {
+    margin-right: auto;
+    margin-left:auto;
+  }
+</style>
 <section class="shop_section layout_padding">
     <div class="container">
     <div class="heading_container ">
         <h2 class="">
-          Top Products
+          Our Top 5 Products
         </h2>
       </div>
-      <div class="row">
+      <div class="row ">
       
       @foreach($product as $products)
-        <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="col-sm-6 col-md-4 col-lg-3 product-section">
           <div class="box">
            
               <div class="img-box">
