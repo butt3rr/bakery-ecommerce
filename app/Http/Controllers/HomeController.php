@@ -58,6 +58,9 @@ class HomeController extends Controller
 
     public function login_home()
     {
+        //get active promotions
+    $promotions = Promotion::where('is_active', 1)->get();
+
          //display product data
     $product = Product::all();
 
@@ -74,7 +77,7 @@ class HomeController extends Controller
         
     }
 
-    return view('home.index', compact('product', 'count'));
+    return view('home.index', compact('product', 'count', 'promotions'));
     }
 
     public function product_details($id)
@@ -262,6 +265,7 @@ class HomeController extends Controller
 
     public function add_contact(Request $request)
     {
+        // dd(session()->all());
         $data = new Contact;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -269,6 +273,7 @@ class HomeController extends Controller
         $data->message = $request->message;
 
         $data->save();
+        // dd($data);
 
         toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Message Sent Successfully.');
 

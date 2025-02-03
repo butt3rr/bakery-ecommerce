@@ -54,7 +54,7 @@ route::get('product_details/{id}', [HomeController::class, 'product_details']);
 
 route::post('add_cart/{id}', [HomeController::class, 'add_cart'])->middleware(['auth', 'verified']);
 
-route::post('add_contact', [HomeController::class, 'add_contact'])->middleware(['auth', 'verified']);
+route::post('add_contact', [HomeController::class, 'add_contact']);
 
 route::get('mycart', [HomeController::class, 'mycart'])->middleware(['auth', 'verified']);
 
