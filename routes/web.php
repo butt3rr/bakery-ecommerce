@@ -56,6 +56,8 @@ route::post('add_cart/{id}', [HomeController::class, 'add_cart'])->middleware(['
 
 route::post('add_contact', [HomeController::class, 'add_contact']);
 
+route::get('contact', [HomeController::class, 'contact']);
+
 route::get('mycart', [HomeController::class, 'mycart'])->middleware(['auth', 'verified']);
 
 route::get('delete_cart/{id}', [HomeController::class, 'delete_cart'])->middleware(['auth', 'verified']);

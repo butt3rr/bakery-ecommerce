@@ -263,19 +263,33 @@ class HomeController extends Controller
             return view('home.shop', compact('product', 'count'));
     }
 
+    //view contact page
+    public function contact()
+    {
+       
+            return view('home.contact');
+    }
+
+    //add contact function
     public function add_contact(Request $request)
     {
-        // dd(session()->all());
+        //check if email exist in Users table. if exist, is_user is 1, otherwise 0
+        $isUser = User::where('email', $request->email)->exists() ? 1:0;
+
+        //create contact object 
         $data = new Contact;
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
         $data->message = $request->message;
+        $data->is_user = $isUser;
 
+        //save data
         $data->save();
-        // dd($data);
-
+        
+        //ui once contact successfully sent
         toastr()->timeout(5000)->closeButton()->timeout(5000)->success('Message Sent Successfully.');
+
 
         return redirect()->back();
     }

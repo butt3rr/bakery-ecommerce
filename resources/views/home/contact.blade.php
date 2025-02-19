@@ -1,7 +1,14 @@
+<head>
+  @include('home.css')
+</head>
+<!-- header section strats -->
+@include('home.header')
+    <!-- end header section -->
+
 <section class="contact_section ">
     <div class="container px-0">
       <div class="heading_container ">
-        <h2 class="">
+        <h2 class="pt-5">
           Contact Us
         </h2>
       </div>
@@ -43,3 +50,4 @@
   </section>
 
   <br><br><br>
+  @include('home.footer')
