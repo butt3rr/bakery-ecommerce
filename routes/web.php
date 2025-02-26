@@ -12,6 +12,9 @@ route::get('/dashboard', [HomeController::class, 'login_home'])->middleware(['au
 
 route::get('/myorders', [HomeController::class, 'my_orders'])->middleware(['auth', 'verified']);
 
+route::get('/logout', [HomeController::class, 'logout'])->middleware(['auth', 'verified']);
+
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

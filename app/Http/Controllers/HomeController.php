@@ -80,6 +80,13 @@ class HomeController extends Controller
     return view('home.index', compact('product', 'count', 'promotions'));
     }
 
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
+    }
+
     public function product_details($id)
     {
         $data = Product::find($id);
@@ -266,8 +273,20 @@ class HomeController extends Controller
     //view contact page
     public function contact()
     {
-       
-            return view('home.contact');
+        
+        if(Auth::id())
+        {
+            $user = Auth::user();
+            $userid = $user->id; //get from user table
+            
+            $count = Cart::where('user_id', $userid )->count();
+        }
+        else {
+            
+                $count = '';
+            
+        }
+            return view('home.contact', compact( 'count'));
     }
 
     //add contact function
